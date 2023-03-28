@@ -32,7 +32,7 @@ jobs:
         if: always()
         uses: mikepenz/action-junit-report@v3
         with:
-          commit: ${{ github.event.workflow_run.head_sha }
+          commit: ${{ github.event.workflow_run.head_sha }}
           check_name: 'Dastardly Scan Report'
           report_paths: '**/dastardly-report.xml'
           require_tests: true
