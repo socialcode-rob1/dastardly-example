@@ -13,6 +13,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+permissions:
+  checks: write
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:     
   scan-with-dastardly:
@@ -29,6 +32,7 @@ jobs:
         if: always()
         uses: mikepenz/action-junit-report@v3
         with:
+          commit: ${{ github.event.workflow_run.head_sha }
           check_name: 'Dastardly Scan Report'
           report_paths: '**/dastardly-report.xml'
           require_tests: true
