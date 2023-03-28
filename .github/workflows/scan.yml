@@ -23,7 +23,7 @@ jobs:
       - name: Run Dastardly Scan
         uses: PortSwigger/dastardly-github-action@main
         with: 
-          target-url: 'https://www.shadowhq.io/'
+          target-url: 'https://app.shadowhq.io/'
            
       - name: Publish Dastardly Scan Report
         if: always()
@@ -32,5 +32,6 @@ jobs:
           check_name: 'Dastardly Scan Report'
           report_paths: '**/dastardly-report.xml'
           require_tests: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       
       
